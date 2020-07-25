@@ -22,8 +22,8 @@ export default class Profile extends Component {
         </header>
         <p>
           <strong>Token:</strong>{" "}
-          {currentUser.accessToken.substring(0, 20)} ...{" "}
-          {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
+          {currentUser.access_token.substring(0, 20)} ...{" "}
+          {currentUser.access_token.substr(currentUser.access_token.length - 20)}
         </p>
         <p>
           <strong>Id:</strong>{" "}
@@ -33,11 +33,10 @@ export default class Profile extends Component {
           <strong>Email:</strong>{" "}
           {currentUser.email}
         </p>
-        <strong>Authorities:</strong>
-        <ul>
-          {currentUser.roles &&
-            currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-        </ul>
+        <p>
+          <strong>Role:</strong>{" "}
+          {currentUser.role}
+        </p>
       </div>
     );
   }
