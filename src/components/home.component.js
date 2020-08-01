@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Jumbotron, Button } from "reactstrap";
 import UserService from "../services/user.service";
 
 export default class Home extends Component {
@@ -29,11 +29,28 @@ export default class Home extends Component {
     );
   }
 
+  /*
+    render() {
+    var imageName = require('./../images/header.png')
+    return (
+      <div className="container">
+        <header img src={imageName}>
+
+        </header>
+      </div>
+    );
+    */
+
   render() {
     return (
       <div className="container">
         <header className="jumbotron">
-          <h3>{this.state.content}</h3>
+          <p className="lead">Tangle's Beauty Service</p>
+          <hr className="my-2" />
+          <p>Providing highest quality service for beauty appointments</p>
+          <p className="lead">
+            <Button color="primary">Learn More</Button>
+          </p>
         </header>
       </div>
     );
