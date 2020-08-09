@@ -1,6 +1,44 @@
 import React, { Component } from "react";
 import { Jumbotron, Button } from "reactstrap";
 import UserService from "../services/user.service";
+import Sidebar from "./sidebar.component";
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+
+const items = [
+  { name: 'home', label: 'Home' },
+  {
+    name: 'billing',
+    label: 'Billing',
+    items: [
+      { name: 'statements', label: 'Statements' },
+      { name: 'reports', label: 'Reports' },
+    ],
+  },
+  {
+    name: 'settings',
+    label: 'Settings',
+    items: [
+      { name: 'profile', label: 'Profile' },
+      { name: 'insurance', label: 'Insurance' },
+      {
+        name: 'notifications',
+        label: 'Notifications',
+        items: [
+          { name: 'email', label: 'Email' },
+          {
+            name: 'desktop',
+            label: 'Desktop',
+            items: [
+              { name: 'schedule', label: 'Schedule' },
+              { name: 'frequency', label: 'Frequency' },
+            ],
+          },
+          { name: 'sms', label: 'SMS' },
+        ],
+      },
+    ],
+  },
+]
 
 export default class Home extends Component {
   constructor(props) {
@@ -43,7 +81,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <header className="jumbotron">
           <p className="lead">Tangle's Beauty Service</p>
           <hr className="my-2" />

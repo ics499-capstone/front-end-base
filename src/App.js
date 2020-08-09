@@ -125,10 +125,8 @@ class App extends Component {
               {/*<Route path="/admin" component={BoardAdmin} /> */}
             </Switch>
           </div>
-          <div>
-            <FooterPage/>
-          </div>
         </div>
+        <FooterPage/>
       </Router>
     );
   }
