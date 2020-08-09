@@ -10,6 +10,7 @@ import Register from "./components/register.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
+import FooterPage from "./components/footer.component";
 //import BoardModerator from "./components/board-moderator.component";
 //import BoardAdmin from "./components/board-admin.component";
 
@@ -123,6 +124,9 @@ class App extends Component {
               {/*<Route path="/mod" component={BoardModerator} /> */}
               {/*<Route path="/admin" component={BoardAdmin} /> */}
             </Switch>
+          </div>
+          <div>
+            <FooterPage/>
           </div>
         </div>
       </Router>
