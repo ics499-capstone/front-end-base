@@ -2,66 +2,82 @@ import React, { Component } from "react";
 import { Jumbotron, Button } from "reactstrap";
 import UserService from "../services/user.service";
 import Sidebar from "./sidebar.component";
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import SideNav, {
+  Toggle,
+  Nav,
+  NavItem,
+  NavIcon,
+  NavText,
+} from "@trendmicro/react-sidenav";
+import Booking from "./booking.component";
 
 const items = [
-  { name: 'home', label: 'Home' },
+  { name: "home", label: "Home" },
   {
-    name: 'billing',
-    label: 'Billing',
+    name: "billing",
+    label: "Billing",
     items: [
-      { name: 'statements', label: 'Statements' },
-      { name: 'reports', label: 'Reports' },
+      { name: "statements", label: "Statements" },
+      { name: "reports", label: "Reports" },
     ],
   },
   {
-    name: 'settings',
-    label: 'Settings',
+    name: "settings",
+    label: "Settings",
     items: [
-      { name: 'profile', label: 'Profile' },
-      { name: 'insurance', label: 'Insurance' },
+      { name: "profile", label: "Profile" },
+      { name: "insurance", label: "Insurance" },
       {
-        name: 'notifications',
-        label: 'Notifications',
+        name: "notifications",
+        label: "Notifications",
         items: [
-          { name: 'email', label: 'Email' },
+          { name: "email", label: "Email" },
           {
-            name: 'desktop',
-            label: 'Desktop',
+            name: "desktop",
+            label: "Desktop",
             items: [
-              { name: 'schedule', label: 'Schedule' },
-              { name: 'frequency', label: 'Frequency' },
+              { name: "schedule", label: "Schedule" },
+              { name: "frequency", label: "Frequency" },
             ],
           },
-          { name: 'sms', label: 'SMS' },
+          { name: "sms", label: "SMS" },
         ],
       },
     ],
   },
-]
+];
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      content: ""
+      content: "",
     };
+    // this.state = {
+    //   bookingForm: false,
+    // };
   }
+
+  // handleBooking() {
+  //   //this.setState({ bookingForm: false });
+  //   //window.location.reload(false);
+  //   console.log("hello");
+  // }
 
   componentDidMount() {
     UserService.getPublicContent().then(
-      response => {
+      (response) => {
         this.setState({
-          content: response.data
+          content: response.data,
         });
       },
-      error => {
+      (error) => {
         this.setState({
           content:
             (error.response && error.response.data) ||
             error.message ||
-            error.toString()
+            error.toString(),
         });
       }
     );
@@ -80,6 +96,8 @@ export default class Home extends Component {
     */
 
   render() {
+    //const { bookingForm } = this.state;
+
     return (
       <div>
         <header className="jumbotron">
@@ -87,7 +105,7 @@ export default class Home extends Component {
           <hr className="my-2" />
           <p>Providing highest quality service for beauty appointments</p>
           <p className="lead">
-            <Button color="primary">Learn More</Button>
+            <Button color="primary">Learn</Button>
           </p>
         </header>
       </div>

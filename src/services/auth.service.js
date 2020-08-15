@@ -7,9 +7,9 @@ class AuthService {
     return axios
       .post(API_URL + "login", {
         username,
-        password
+        password,
       })
-      .then(response => {
+      .then((response) => {
         if (response.data.access_token) {
           localStorage.setItem("user", JSON.stringify(response.data));
         }
@@ -22,16 +22,31 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
+  submit(time, date) {
+    return axios
+      .post("localhost:5000/api/client/schedule", {
+        time,
+        date,
+      })
+      .then((response) => {
+        if (response.data.access_token) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+        }
+
+        return response.data;
+      });
+  }
+
   register(username, email, password) {
     return axios.post(API_URL + "register", {
       username,
       email,
-      password
+      password,
     });
   }
 
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
+    return JSON.parse(localStorage.getItem("user"));
   }
 }
 

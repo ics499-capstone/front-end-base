@@ -6,6 +6,8 @@ import "./App.css";
 import AuthService from "./services/auth.service";
 
 import Login from "./components/login.component";
+import Booking from "./components/booking.component";
+import Product from "./components/product.component";
 import Register from "./components/register.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
@@ -22,7 +24,7 @@ class App extends Component {
     this.state = {
       showModeratorBoard: false,
       showAdminBoard: false,
-      currentUser: undefined
+      currentUser: undefined,
     };
   }
 
@@ -77,18 +79,21 @@ class App extends Component {
 
               {currentUser && (
                 <li className="nav-item">
-                  <Link to={"/user"} className="nav-link">
-                    User
+                  <Link to={"/booking"} className="nav-link">
+                    Booking
                   </Link>
                 </li>
               )}
+              <Link to={"/product"} className="nav-link">
+                Product
+              </Link>
             </div>
 
             {currentUser ? (
               <div className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <Link to={"/profile"} className="nav-link">
-                   {currentUser.username}
+                    {currentUser.username}
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -120,13 +125,15 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/profile" component={Profile} />
-              <Route path="/user" component={BoardUser} />
+              {/* <Route path="/user" component={BoardUser} /> */}
+              <Route path="/booking" component={Booking} />
+              <Route path="/product" component={Product} />
               {/*<Route path="/mod" component={BoardModerator} /> */}
               {/*<Route path="/admin" component={BoardAdmin} /> */}
             </Switch>
           </div>
         </div>
-        <FooterPage/>
+        <FooterPage />
       </Router>
     );
   }
