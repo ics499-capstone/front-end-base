@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Jumbotron, Button } from "reactstrap";
-import UserService from "../services/user.service";
 import Sidebar from "./sidebar.component";
 import SideNav, {
   Toggle,
@@ -66,21 +65,6 @@ export default class Home extends Component {
   // }
 
   componentDidMount() {
-    UserService.getPublicContent().then(
-      (response) => {
-        this.setState({
-          content: response.data,
-        });
-      },
-      (error) => {
-        this.setState({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString(),
-        });
-      }
-    );
   }
 
   /*

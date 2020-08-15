@@ -96,7 +96,7 @@ const Booking = (props) => {
               Submit
             </Button>
             {appointmentSubmitted ? (
-              <h5>your appointment is submitted seccefully </h5>
+              <h5>your appointment is submitted successfully</h5>
             ) : (
               <h1></h1>
             )}

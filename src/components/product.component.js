@@ -14,7 +14,10 @@ class Products extends Component {
   componentWillMount() {
     axios
       // .get("https://jsonplaceholder.typicode.com/posts")
-      .get("localhost:5000/api/client/product")
+      .get("http://localhost:5000/api/data/product", 
+      {
+          // no payload required
+      })
 
       .then((response) => {
         console.log(response);
