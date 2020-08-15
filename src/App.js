@@ -13,6 +13,7 @@ import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import FooterPage from "./components/footer.component";
+import AdminAddService from "./components/admin.component";
 //import BoardModerator from "./components/board-moderator.component";
 //import BoardAdmin from "./components/board-admin.component";
 
@@ -79,6 +80,14 @@ class App extends Component {
 
               {currentUser && (
                 <li className="nav-item">
+                  <Link to={"/addservice"} className="nav-link">
+                    Add Service
+                  </Link>
+                </li>
+              )}
+
+              {currentUser && (
+                <li className="nav-item">
                   <Link to={"/booking"} className="nav-link">
                     Booking
                   </Link>
@@ -128,6 +137,7 @@ class App extends Component {
               {/* <Route path="/user" component={BoardUser} /> */}
               <Route path="/booking" component={Booking} />
               <Route path="/product" component={Product} />
+              <Route path="/addservice" component={AdminAddService} />
               {/*<Route path="/mod" component={BoardModerator} /> */}
               {/*<Route path="/admin" component={BoardAdmin} /> */}
             </Switch>
